@@ -37,7 +37,7 @@ spec:
     - name: REVERSE_PROXY
       value: "true"
     - name: REDIS_URL
-      value: redis://redis-ctfd.security-champion-admin.svc.cluster.local
+      value: redis://redis-ctfd.security-champion-admin.svc.cluster.local:6379
     - name: DATABASE_URL
       value: sqlite:////tmp/ctfd.db
   accessPolicy:
