@@ -7,13 +7,13 @@ metadata:
     team: security-champion-admin
 spec:
   image: {{ image }}
-  port: 8080
+  port: 8000
   ingresses:
     - https://ctfd.dev.intern.nav.no
   liveness:
     path: /
   readiness:
-    path: /challenges
+    path: /
   replicas:
     min: 1
     max: 1
