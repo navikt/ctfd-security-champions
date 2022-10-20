@@ -20,7 +20,7 @@ spec:
   - name: UPLOAD_FOLDER
     value: /var/uploads
   - name: WORKERS
-    value: 1
+    value: "1"
   - name: LOG_FOLDER
     value: /var/log/CTFd
   - name: ACCESS_LOG
