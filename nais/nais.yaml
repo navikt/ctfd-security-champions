@@ -25,11 +25,11 @@ spec:
 #            name: ctfd
   env:
   - name: UPLOAD_FOLDER
-    value: /var/uploads
+    value: /tmp/uploads
   - name: WORKERS
     value: "1"
   - name: LOG_FOLDER
-    value: /var/log/CTFd
+    value: /tmp/log/CTFd
   - name: ACCESS_LOG
     value: "-"
   - name: ERROR_LOG
@@ -38,6 +38,8 @@ spec:
     value: "true"
   - name: REDIS_URL
     value: redis-ctf.security-champions-admin.svc.cluster.local
+  - name: DATABASE_URL
+    value: sqlite:///tmp/ctfd.db
   accessPolicy:
     outbound:
       rules:
