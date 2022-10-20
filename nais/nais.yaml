@@ -9,7 +9,7 @@ spec:
   image: {{ image }}
   port: 8080
   ingresses:
-    - https://ctfd.intern.dev.nav.no
+    - https://ctfd.dev.intern.nav.no
   liveness:
     path: /
   readiness:
