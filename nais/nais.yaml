@@ -19,19 +19,21 @@ spec:
           - name: ctfd
           - envVarPrefix: DATABASE
   env:
-    - name: UPLOAD_FOLDER
-      value: /var/uploads
-    - name: WORKERS
-      value: 1
-    - name: LOG_FOLDER
-      value: /var/log/CTFd
-    - name: ACCESS_LOG
-      value: "-"
-    - name: ERROR_LOG
-      value: "-"
-    - name: REVERSE_PROXY
-      value: "true"
-  accessPolicy: # for GCP
+  - name: UPLOAD_FOLDER
+    value: /var/uploads
+  - name: WORKERS
+    value: 1
+  - name: LOG_FOLDER
+    value: /var/log/CTFd
+  - name: ACCESS_LOG
+    value: "-"
+  - name: ERROR_LOG
+    value: "-"
+  - name: REVERSE_PROXY
+    value: "true"
+  - name: REDIS_URL
+    value: redis-ctf.security-champions-admin.svc.cluster.local
+  accessPolicy:
     outbound:
       rules:
         - application: ctfd-redis
