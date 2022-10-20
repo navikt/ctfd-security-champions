@@ -1,0 +1,33 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: ctfd
+  namespace: security-champion-admin
+  labels:
+    team: security-champion-admin
+spec:
+  image: ${IMAGE}
+  port: 8080
+  ingresses:
+    { { #each ingresses as |url|}}
+        - {{url } }
+      {{/each}}
+  gcp:
+    sqlInstances:
+      - type: POSTGRES_14
+        databases:
+          - name: ctfd
+          - envVarPrefix: DATABASE
+  env:
+    - name: UPLOAD_FOLDER
+      value: /var/uploads
+    - name: WORKERS
+      value: 1
+    - name: LOG_FOLDER
+      value: /var/log/CTFd
+    - name: ACCESS_LOG
+      value: "-"
+    - name: ERROR_LOG
+      value: "-"
+    - name: REVERSE_PROXY
+      value: "true"
