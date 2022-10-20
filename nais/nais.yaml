@@ -40,8 +40,6 @@ spec:
       value: "true"
     - name: REDIS_URL
       value: redis-ctf.security-champions-admin.svc.cluster.local
-    - name: DATABASE_URL
-      value: sqlite:///tmp/ctfd.db
   accessPolicy:
     outbound:
       rules:
