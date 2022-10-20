@@ -1,0 +1,31 @@
+---
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  labels:
+    team: security-champions-admin
+  annotations:
+    nais.io/read-only-file-system: "false"
+    nais.io/run-as-user: "999"
+  name: ctfd-redis
+  namespace: security-champions-admin
+spec:
+  image: redis:alpine3.16
+  port: 6379
+  replicas: # A single Redis-app doesn't scale
+    min: 1
+    max: 1 # More replicas doesn't sync
+  resources: # you need to monitor the resource usage yourself
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  service:
+    port: 6379
+    protocol: redis
+  accessPolicy: # for GCP
+    inbound:
+      rules:
+        - application: ctfd

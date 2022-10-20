@@ -6,12 +6,12 @@ metadata:
   labels:
     team: security-champion-admin
 spec:
-  image: {{image}}
+  image: {{ image }}
   port: 8080
   ingresses:
-    {{ #each ingresses as |url|}}
-        - {{url }}
-    {{/each}}
+    {{ #each ingresses as |url| }}
+        - {{ url }}
+      {{ /each }}
   gcp:
     sqlInstances:
       - type: POSTGRES_14
@@ -31,3 +31,7 @@ spec:
       value: "-"
     - name: REVERSE_PROXY
       value: "true"
+  accessPolicy: # for GCP
+    outbound:
+      rules:
+        - application: ctfd-redis
