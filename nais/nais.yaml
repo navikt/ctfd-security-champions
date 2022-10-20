@@ -10,6 +10,10 @@ spec:
   port: 8080
   ingresses:
     - https://ctfd.intern.dev.nav.no
+  liveness:
+    path: /
+  readiness:
+    path: /challenges
   gcp:
     sqlInstances:
       - type: POSTGRES_14
