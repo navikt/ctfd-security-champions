@@ -42,5 +42,5 @@ jobs:
           CLUSTER: dev-gcp
           RESOURCE: nais/nais.yaml
           VARS: nais/dev-gcp.yaml
-          IMAGE: $IMAGE
+          IMAGE: ${{ env.IMAGE }}
         
