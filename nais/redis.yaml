@@ -1,14 +1,13 @@
----
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
   labels:
-    team: security-champions-admin
+    team: security-champion-admin
   annotations:
     nais.io/read-only-file-system: "false"
     nais.io/run-as-user: "999"
   name: ctfd-redis
-  namespace: security-champions-admin
+  namespace: security-champion-admin
 spec:
   image: redis:alpine3.16
   port: 6379
